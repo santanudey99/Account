@@ -1,4 +1,7 @@
 image: docker:stable
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_HOST: tcp://localhost:2375
 services:
   - docker:dind
 before_script:
@@ -8,5 +11,4 @@ stages:
 build:
   stage: build
   script:
-    - export DOCKER_HOST="tcp://localhost:2375"
     - docker build .
