@@ -1,4 +1,6 @@
 image: docker:stable
+variables:
+    DOCKER_HOST=tcp://localhost:2375
 before_script:
   - docker info
 stages:
