@@ -1,13 +1,7 @@
-image: docker:stable
-variables:
-  DOCKER_DRIVER: overlay2
-services:
-  - docker:dind
-before_script:
-  - docker info
+image: maven:latest
 stages:
   - build
 build:
   stage: build
   script:
-    - docker build .
+    - mvn docker:build
