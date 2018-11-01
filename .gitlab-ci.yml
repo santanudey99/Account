@@ -4,4 +4,4 @@ stages:
 build:
   stage: build
   script:
-    - mvn docker:build
+    - mvn package docker:build
