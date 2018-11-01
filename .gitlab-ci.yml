@@ -1,7 +1,23 @@
-image: maven:latest
+image: docker:latest
+services:
+  - docker:dind
+
+variables:
+  DOCKER_DRIVER: overlay
+
 stages:
   - build
-build:
+  - package
+
+maven-build:
+  image: maven:3-jdk-8
   stage: build
+  script: "mvn package -B"
+  artifacts:
+    paths:
+      - target/*.jar
+
+docker-build:
+  stage: package
   script:
-    - mvn package docker:build
+  - docker build .
