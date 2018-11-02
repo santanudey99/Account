@@ -12,7 +12,7 @@ stages:
 maven-build:
   image: maven:3-jdk-8
   stage: build
-  script: "mvn -Dmaven.test.skip=true package -B"
+  script: mvn -Dmaven.test.skip=true package sonar:sonar -Dsonar.host.url="http://54.175.45.71:9000" -B
   artifacts:
     paths:
       - target/*.jar
