@@ -21,4 +21,3 @@ docker-build:
   stage: package
   script:
   - docker build . -t santanudey99/accounts
-  
