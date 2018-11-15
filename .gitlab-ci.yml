@@ -25,7 +25,7 @@ maven-build:
 docker-build:
   stage: package
   script:
-    - docker login registry.gitlab.com -u santanudey -p nabinDE@1
+    - docker login registry.gitlab.com -u $GITLAB_USER -p $GITLAB_PWD
     - docker build -t registry.gitlab.com/santanudey/account .
     - docker push registry.gitlab.com/santanudey/account
     
