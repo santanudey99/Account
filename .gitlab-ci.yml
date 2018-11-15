@@ -20,5 +20,5 @@ maven-build:
 docker-build:
   stage: package
   script:
-  - docker build . -t santanudey99/accounts
-  
+    - docker build -t registry.gitlab.com/santanudey/account .
+    - docker push registry.gitlab.com/santanudey/account
