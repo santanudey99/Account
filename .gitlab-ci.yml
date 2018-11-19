@@ -46,6 +46,7 @@ variables:
   # AUTO_DEVOPS_DOMAIN: domain.example.com
 
   AUTO_DEVOPS_DOMAIN: lkq-vmn.com
+  KUBE_NAMESPACE: default
   POSTGRES_USER: user
   POSTGRES_PASSWORD: testing-password
   POSTGRES_ENABLED: "true"
