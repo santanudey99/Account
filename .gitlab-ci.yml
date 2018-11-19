@@ -56,6 +56,7 @@ variables:
   DOCKER_DRIVER: overlay2
 
 stages:
+  - package
   - build
   - test
   - review
@@ -72,7 +73,7 @@ stages:
 
 maven-build:
   image: maven:3-jdk-8
-  stage: build
+  stage: package
   cache:
     paths:
       - .m2/repository
