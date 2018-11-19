@@ -85,6 +85,9 @@ maven-build:
       - target/*.jar
 
 docker-build:
+  image: docker:latest
+  services:
+    - docker:dind
   stage: build
   script:
     - docker login registry.gitlab.com -u santanudey -p nabinDE@1
