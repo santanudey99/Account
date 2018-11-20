@@ -26,3 +26,4 @@ deploy_live:
   script:
     - kubectl version
     - kubectl set image deployment nginx nginx=nginx:1.11.5 --record
+    
