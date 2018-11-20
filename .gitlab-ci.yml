@@ -6,29 +6,7 @@ variables:
   DOCKER_DRIVER: overlay
 
 stages:
-  - mvn_build
-  - docker_build
   - deploy
-
-maven-build:
-  image: maven:3-jdk-8
-  stage: mvn_build
-  cache:
-    paths:
-      - .m2/repository
-  variables:
-    MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
-  script: mvn -Dmaven.test.skip=true package sonar:sonar -Dsonar.host.url="http://54.175.45.71:9000" -B
-  artifacts:
-    paths:
-      - target/*.jar
-
-docker-build:
-  stage: docker_build
-  script:
-    - docker login registry.gitlab.com -u $GITLAB_USER -p $GITLAB_PWD
-    - docker build -t registry.gitlab.com/santanudey/account .
-    - docker push registry.gitlab.com/santanudey/account
 
 deploy_live:
   image: lachlanevenson/k8s-kubectl:latest
