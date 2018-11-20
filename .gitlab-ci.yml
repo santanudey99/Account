@@ -24,6 +24,6 @@ deploy_live:
     name: live
     url: https:/lkq-vmn.com
   script:
-    - kubectl version
+    - kubectl version insecure-skip-tls-verify=true
     - kubectl set image deployment nginx nginx=nginx:1.11.5 --record
     
