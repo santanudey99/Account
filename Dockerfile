@@ -20,6 +20,6 @@ ADD ${JAR_FILE} accountService.jar
 ENTRYPOINT ["java","-jar","/accountService.jar"]
 
 #install kubectl
-RUN wget kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/kubectl \
+RUN wget https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/kubectl \
     -O /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl
