@@ -6,7 +6,7 @@ LABEL maintainer="santanudey_bec@yahoo.co.in"
 
 # Add a volume pointing to /tmp
 VOLUME /tmp
-VOLUME /log
+VOLUME /logs
 
 # Make port 3333 available to the world outside this container
 EXPOSE 3333
