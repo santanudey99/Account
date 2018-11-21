@@ -14,7 +14,7 @@ import com.sant.account.model.Account;
 public class AccountController {
     private List<Account> accounts;
  
-    protected Logger logger = Logger.getLogger(AccountController.class.getName());
+    protected Logger logger = Logger.getLogger("com.sant.account");
  
     public AccountController() {
         accounts = new ArrayList<>();
