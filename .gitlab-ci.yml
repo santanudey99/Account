@@ -49,6 +49,8 @@ deploy_live:
     - test -f /usr/local/bin/kubectl || install -m 770 binary-cache/kubectl /usr/local/bin
     # ... other stuff ...
   script:
+    - hostname
+    - ip
     - kubectl version
     - kubectl set image deployment nginx nginx=nginx:1.11.5 --record
 
