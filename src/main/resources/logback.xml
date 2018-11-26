@@ -17,17 +17,14 @@
             <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36}.%M - %msg%n</pattern>
         </encoder>
     </appender>    
-    <appender name="Cloudwatch" class="com.boxfuse.cloudwatchlogs.logback.CloudwatchLogsLogbackAppender"/>
 
     <root level="info">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="SAVE-TO-FILE" />
-        <appender-ref ref="Cloudwatch" />
     </root>
     <logger name="com.sant.account" additivity="false" level="debug">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="SAVE-TO-FILE" />
-        <appender-ref ref="Cloudwatch" />
     </logger>
 
 </configuration>
