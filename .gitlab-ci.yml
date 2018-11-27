@@ -51,6 +51,6 @@ deploy_dev:
   script:
     - hostname
     - kubectl version
-    - kubectl set image deployment nginx nginx=nginx:1.11.5 --record
+    - kubectl set image deployment account registry.gitlab.com/santanudey/account=registry.gitlab.com/santanudey/account:latest --record
 
     
