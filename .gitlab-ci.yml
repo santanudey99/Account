@@ -51,6 +51,6 @@ deploy_dev:
   script:
     - hostname
     - kubectl version
-    - kubectl set image deployment account registry.gitlab.com/santanudey/account=registry.gitlab.com/santanudey/account:latest --namespace=development --record
+    - kubectl set image deployment account registry.gitlab.com/santanudey/account=registry.gitlab.com/santanudey/account:latest 
 
     
