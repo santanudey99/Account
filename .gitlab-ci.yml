@@ -6,13 +6,13 @@ variables:
   DOCKER_DRIVER: overlay
 
 stages:
-  - mvn_build
+  - maven_package
   - docker_build
-  - deploy
+  - deploy_dev
 
-maven-build:
+maven_package:
   image: maven:3-jdk-8
-  stage: mvn_build
+  stage: maven_package
   cache:
     paths:
       - .m2/repository
@@ -23,18 +23,18 @@ maven-build:
     paths:
       - target/*.jar
 
-docker-build:
+docker_build:
   stage: docker_build
   script:
     - docker login registry.gitlab.com -u $GITLAB_USER -p $GITLAB_PWD
     - docker build -t registry.gitlab.com/santanudey/account .
     - docker push registry.gitlab.com/santanudey/account
 
-deploy_live:
-  stage: deploy
+deploy_dev:
+  stage: deploy_dev
   environment:
-    name: live
-    url: https:/lkq-vmn.com
+    name: lkqekscluster
+    url: https:/lkqvmn-dev.com
   cache:
     paths:
       - binary-cache
@@ -50,7 +50,6 @@ deploy_live:
     # ... other stuff ...
   script:
     - hostname
-    - ip
     - kubectl version
     - kubectl set image deployment nginx nginx=nginx:1.11.5 --record
 
