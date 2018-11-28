@@ -51,6 +51,6 @@ deploy_dev:
   script:
     - hostname
     - kubectl version
-    - kubectl set image deployment account registry.gitlab.com/santanudey/account=registry.gitlab.com/santanudey/account:latest 
+    - kubectl apply -f https://k8s.io/examples/application/nginx/nginx-deployment.yaml
 
     
