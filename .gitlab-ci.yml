@@ -49,8 +49,7 @@ deploy_dev:
     - test -f /usr/local/bin/kubectl || install -m 770 binary-cache/kubectl /usr/local/bin
     # ... other stuff ...
   script:
-    - hostname
     - kubectl version
-    - kubectl apply -f https://k8s.io/examples/application/nginx/nginx-deployment.yaml
+    - kubectl get pods
 
     
