@@ -50,6 +50,6 @@ deploy_dev:
     # ... other stuff ...
   script:
     - kubectl version
-    - kubectl get pods
+    - kubectl config get-contexts
 
     
