@@ -51,6 +51,6 @@ deploy_dev:
   script:
     - hostname
     - kubectl version
-    - kubectl apply -f https://k8s.io/examples/application/nginx/nginx-deployment.yaml
+    - kubectl apply -f /home/ec2-user/deployments/accountserv_depl_service.yaml
 
     
