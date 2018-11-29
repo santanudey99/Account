@@ -33,11 +33,12 @@ docker_build:
 deploy_dev:
   stage: deploy_dev
   environment:
-    name: lkqekscluster
+    name: dev
     url: https:/lkqvmn-dev.com
   script:
+    - hostname
     - kubectl version
     - kubectl config get-contexts
-    - kubectl apply -f https://k8s.io/examples/application/nginx/nginx-deployment.yaml 
+    - kubectl create -f /home/ec2-user/deployments/accountserv_depl_service.yaml 
 
     
