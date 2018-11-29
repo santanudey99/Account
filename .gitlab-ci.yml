@@ -35,21 +35,9 @@ deploy_dev:
   environment:
     name: lkqekscluster
     url: https:/lkqvmn-dev.com
-  cache:
-    paths:
-      - binary-cache
-  before_script:
-    - apk add --no-cache curl ca-certificates
-    # create the binary-cache folder if not present
-    - test -d binary-cache || mkdir binary-cache
-    # install kubectl binary into binary-cache if not already present
-    - test -f binary-cache/kubectl || curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.7.2/bin/linux/amd64/kubectl
-    - test -f binary-cache/kubectl || mv kubectl binary-cache/kubectl
-    # install kubectl binary into /usr/local/bin if not already present
-    - test -f /usr/local/bin/kubectl || install -m 770 binary-cache/kubectl /usr/local/bin
-    # ... other stuff ...
   script:
     - kubectl version
     - kubectl config get-contexts
+    - kubectl apply -f https://k8s.io/examples/application/nginx/nginx-deployment.yaml 
 
     
