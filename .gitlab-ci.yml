@@ -9,6 +9,7 @@ stages:
   - maven_package
   - docker_build
   - deploy_dev
+  - deploy_qa
 
 maven_package:
   image: maven:3-jdk-8
@@ -38,7 +39,17 @@ deploy_dev:
   script:
     - hostname
     - kubectl version
-    - kubectl config get-contexts
     - kubectl apply -f /home/ec2-user/deployments/accountserv_depl_service.yaml 
+
+deploy_QA:
+  stage: deploy_QA
+  environment:
+    name: qa
+    url: https:/lkqvmn-qa.com
+  script:
+    - hostname
+    - kubectl version
+    - kubectl apply -f /home/ec2-user/deployments/accountserv_depl_service.yaml 
+  when: manual
 
     
