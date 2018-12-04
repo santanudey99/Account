@@ -9,7 +9,7 @@ stages:
   - maven_package
   - docker_build
   - deploy_DEV
-  - deploy_QA
+  - deploy_SIT
 
 maven_package:
   image: maven:3-jdk-8
@@ -37,19 +37,15 @@ deploy_dev:
     name: dev
     url: https:/lkqvmn-dev.com
   script:
-    - hostname
-    - kubectl version
-    - kubectl apply -f /home/ec2-user/deployments/accountserv_depl_service.yaml 
+    - kubectl apply -f /home/ec2-user/deployments/accountserv_depl_service_dev.yaml 
 
-deploy_qa:
-  stage: deploy_QA
+deploy_sit:
+  stage: deploy_SIT
   environment:
-    name: qa
-    url: https:/lkqvmn-qa.com
+    name: sit
+    url: https:/lkqvmn-sit.com
   script:
-    - hostname
-    - kubectl version
-    - kubectl apply -f /home/ec2-user/deployments/accountserv_depl_service.yaml 
+    - kubectl apply -f /home/ec2-user/deployments/accountserv_depl_service_sit.yaml 
   when: manual
 
     
