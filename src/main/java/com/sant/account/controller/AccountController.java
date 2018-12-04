@@ -17,6 +17,7 @@ public class AccountController {
     protected Logger logger = Logger.getLogger("com.sant.account");
  
     public AccountController() {
+        // Constructor
         accounts = new ArrayList<>();
         accounts.add(new Account("ac1", "111111", 100000));
         accounts.add(new Account("ac2", "222222", 200000));
