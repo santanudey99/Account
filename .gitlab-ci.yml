@@ -18,7 +18,7 @@ maven_package:
       - .m2/repository
   variables:
     MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
-  script: mvn -Dmaven.test.skip=true package sonar:sonar -Dsonar.host.url="http://54.210.157.223:9000" -B
+  script: mvn -Dmaven.test.skip=true package sonar:sonar -Dsonar.host.url="http://52.204.209.193:9000" -B
   artifacts:
     paths:
       - target/*.jar
