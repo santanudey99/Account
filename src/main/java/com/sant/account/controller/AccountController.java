@@ -47,7 +47,7 @@ public class AccountController {
         return accounts;
     }
     
-    @RequestMapping("/accounts/welcome")
+    @RequestMapping("/accounts/greetings")
     public String welcome() {
         logger.info("Welcome to "+message);
         return "Welcome to "+message;
