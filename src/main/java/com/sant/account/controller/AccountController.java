@@ -12,6 +12,9 @@ import com.sant.account.model.Account;
 
 @RestController
 public class AccountController {
+    @Value("${message}")
+    private String message;
+    
     private List<Account> accounts;
  
     protected Logger logger = Logger.getLogger("com.sant.account");
@@ -41,5 +44,11 @@ public class AccountController {
     public List<Account> findAll() {
         logger.info("Account.findAll()");
         return accounts;
+    }
+    
+    @RequestMapping("/accounts/welcome")
+    public String welcome() {
+        logger.info("Welcome to "+message);
+        return "Welcome to "+message;
     }
 }
