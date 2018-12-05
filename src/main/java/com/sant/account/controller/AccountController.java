@@ -41,13 +41,13 @@ public class AccountController {
         return accounts.stream().filter(it -> it.getCustId().equals(customerId)).collect(Collectors.toList());
     }
  
-    @RequestMapping("/accounts")
+    @RequestMapping("/accounts/all")
     public List<Account> findAll() {
         logger.info("Account.findAll()");
         return accounts;
     }
     
-    @RequestMapping("/accounts/greetings")
+    @RequestMapping("/accounts")
     public String welcome() {
         logger.info("Welcome to "+message);
         return "Welcome to "+message;
