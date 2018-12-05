@@ -38,6 +38,8 @@ deploy_dev:
     url: https:/lkqvmn-dev.com
   script:
     - kubectl apply -f /home/ec2-user/deployments/accountserv_depl_service_dev.yaml 
+    - kubectl get pod --namespace=lkq-dev
+    - kubectl get svc --namespace=lkq-dev
 
 deploy_sit:
   stage: deploy_SIT
@@ -45,7 +47,9 @@ deploy_sit:
     name: sit
     url: https:/lkqvmn-sit.com
   script:
-    - kubectl apply -f /home/ec2-user/deployments/accountserv_depl_service_sit.yaml 
+    - kubectl apply -f /home/ec2-user/deployments/accountserv_depl_service_sit.yaml
+    - kubectl get pod --namespace=lkq-sit
+    - kubectl get svc --namespace=lkq-sit
   when: manual
 
     
