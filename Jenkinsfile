@@ -1,13 +1,11 @@
 pipeline {
-    agent any          //{ label "docker" }    //Run everything on an agent with the docker daemon
+    agent none          //{ label "docker" }    //Run everything on an agent with the docker daemon
     stages {
         stage('maven_package') {
             agent {
                 docker {
-                  containerTemplate {
                     name 'maven'
                     image 'maven:3.3.9-jdk-8-alpine'
-                  }
                 }
             }            
             steps {
