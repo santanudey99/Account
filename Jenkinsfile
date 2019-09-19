@@ -28,5 +28,7 @@ pipeline {
                    kubectl get pod --namespace=lkq-dev
                    kubectl get svc --namespace=lkq-dev'
                    """
+            }
+        }
     }
 }
