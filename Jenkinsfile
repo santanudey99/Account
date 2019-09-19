@@ -3,8 +3,13 @@ pipeline {
     stages {
         stage('maven_package') {
             agent {
-                docker { image 'maven:3-alpine' }
-            }
+                kubernetes {
+                  containerTemplate {
+                    name 'maven'
+                    image 'maven:3.3.9-jdk-8-alpine'
+                  }
+                }
+            }            
             steps {
                 sh 'mvn clean package'
             }
