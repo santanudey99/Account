@@ -1,5 +1,5 @@
 pipeline {
-    agent { label "docker" }    //Run everything on an agent with the docker daemon
+    agent any          //{ label "docker" }    //Run everything on an agent with the docker daemon
     stages {
         stage('maven_package') {
             agent {
